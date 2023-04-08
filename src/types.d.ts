@@ -1,8 +1,8 @@
 import { SUPPORTED_LANGUAGES, AUTO_LANGUAGE } from "./constants"
 
 export interface State {
-    fromLanguage: string,
-    toLanguage: string,
+    fromLanguage: FromLanguage,
+    toLanguage: Languages,
     fromText: string,
     toText: string,
     loading: boolean
@@ -20,17 +20,22 @@ export type Action =
     }
     | {
         type: "SET_FROM_LANGUAGE",
-        payload: string
+        payload: FromLanguage
     }
     | {
         type: "SET_TO_LANGUAGE",
-        payload: string
+        payload: Languages
     }
     | {
         type: "SET_FROM_TEXT",
         payload: string
     }
     | {
-        type: "GET_TO_TEXT",
+        type: "SET_TO_TEXT",
         payload: string
     }
+
+export enum SectionType {
+    From= "from",
+    To= "to"
+}
