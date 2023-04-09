@@ -1,5 +1,5 @@
 import { FromLanguage, Languages } from "../types";
-const API_KEY = "AIzaSyBBiJltMuaiCzqhM95GLr-UtF-vuhbYTaw";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export default async function Translate(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
     try {
@@ -13,12 +13,11 @@ export default async function Translate(fromLanguage: FromLanguage, toLanguage: 
                 "Content-Type": "application/json",
                 Accept: "application/json"
             }
-        })
-        .then(res => res.json())
-        .then((response) => {
-            return response;
+        }).then(res => res.json()).then((response) => {
+            return response.data.translations[0].translatedText;
         });
+        return res;
     } catch (e) {
-        return "Error. Algo ha salido mal con la llamada a la API";
+        return "Error. Algo ha salido mal...";
     }
 }

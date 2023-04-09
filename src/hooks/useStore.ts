@@ -1,9 +1,9 @@
-import { AUTO_LANGUAGE } from '../constants';
+//import { AUTO_LANGUAGE } from '../constants';
 import { Action, Languages, State, FromLanguage } from '../types';
 import { useReducer } from "react";
 
 const initialState: State = {
-    fromLanguage: "auto",
+    fromLanguage: "es",
     toLanguage: "en",
     fromText: "",
     toText: "",
@@ -13,11 +13,14 @@ const initialState: State = {
 function reducer(state: State, action: Action) {
     switch (action.type) {
         case "INTERCHANGE_LANGUAGES":
-            if (state.fromLanguage === AUTO_LANGUAGE) return state;
+            //if (state.fromLanguage === AUTO_LANGUAGE) return state;
+            const loadingFromInterchange = state.toText !== "";
             return {
                 ...state,
                 fromLanguage: state.toLanguage,
-                toLanguage: state.fromLanguage
+                toLanguage: state.fromLanguage,
+                loading: loadingFromInterchange,
+                fromText: state.toText,
             }
         case "SET_FROM_LANGUAGE":
             return {
@@ -30,10 +33,12 @@ function reducer(state: State, action: Action) {
                 toLanguage: action.payload
             }
         case "SET_FROM_TEXT":
+            const loadingFromText = action.payload !== "";
             return {
                 ...state,
-                loading: true,
-                fromText: action.payload
+                loading: loadingFromText,
+                fromText: action.payload,
+                toText: ""
             }
         case "SET_TO_TEXT":
             return {

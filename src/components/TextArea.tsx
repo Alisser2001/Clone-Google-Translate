@@ -29,6 +29,7 @@ export default function TextArea({ type, loading, value, onChange }: Props) {
             as="textarea"
             placeholder={getPlaceHolder(type, loading)}
             value={value}
+            readOnly={ type === SectionType.From ? false : true}
             autoFocus={type === SectionType.From ? true : false}
             style={styles}
             onChange={handleChange}
