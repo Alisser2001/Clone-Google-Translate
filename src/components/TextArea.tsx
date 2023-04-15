@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap";
+import styles from "../styles/Textarea.module.css";
 import { SectionType } from "../types.d";
 
 interface Props {
@@ -14,25 +14,20 @@ const getPlaceHolder = (type: SectionType, loading?: boolean) => {
     return "Traducción"
 }
 
-const generalStyles = { border: 0, height: "200px", resize: "none" };
-
 export default function TextArea({ type, loading, value, onChange }: Props) {
-    const styles = type === SectionType.From
-        ? generalStyles
-        : { ...generalStyles, backgroundColor: "#c0bdbd" };
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         onChange(e.target.value);
     }
     return (
-        <Form.Control
-            as="textarea"
+        <textarea
             placeholder={getPlaceHolder(type, loading)}
             value={value}
-            readOnly={ type === SectionType.From ? false : true}
+            readOnly={type === SectionType.From ? false : true}
             autoFocus={type === SectionType.From ? true : false}
-            style={styles}
             onChange={handleChange}
+            disabled={value.length>=100}
+            className={type === SectionType.From ? styles.containerFrom : styles.containerTo}
         />
     )
 }

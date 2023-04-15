@@ -1,0 +1,32 @@
+.containerFrom {
+    padding: 20px 58px 20px 24px;
+    border: 0;
+    height: 200px;
+    width: 630px;
+    max-width: 630px;
+    resize: none;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, .87);
+}
+
+.containerFrom:disabled{
+    cursor: text;
+}
+
+.containerTo {
+    padding: 20px 58px 20px 24px;
+    border: 0;
+    height: 240px;
+    width: 670px;
+    max-width: 670px;
+    resize: none;
+    background-color: rgba(246,246,246,255);
+    color: rgba(0, 0, 0, .87);
+}
+
+.containerFrom:focus {
+    outline: none;
+}
+.containerTo:focus {
+    outline: none;
+}

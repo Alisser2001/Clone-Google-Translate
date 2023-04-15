@@ -1,0 +1,116 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../../fonts/Roboto-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.contSelectFrom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 250px 0 10px;
+    padding: 0;
+    width: 330px;
+    max-width: 330px;
+    height: 50px;
+    max-height: 50px;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, .87);
+    border: none;
+}
+
+.contSelectTo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 310px 0 10px;
+    padding: 0;
+    width: 330px;
+    max-width: 330px;
+    height: 40px;
+    max-height: 40px;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, .87);
+    border: none;
+}
+
+.language {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-family: "Roboto", arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 50px;
+    max-height: 50px;
+    color: #5f6368;
+    font-weight: 500;
+    font-size: 1.2vw;
+    width: 80vw;
+    max-width: 80vw;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.language:hover {
+    background-color: rgb(60, 64, 67, 0.1);
+    font-weight: bolder;
+}
+
+.languageSelected {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-family: "Roboto", arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 50px;
+    max-height: 50px;
+    color: rgb(25,103,210);
+    font-weight: 500;
+    font-size: 1.2vw;
+    width: 80vw;
+    max-width: 80vw;
+    cursor: pointer;
+    border-bottom: 3px solid rgb(25,103,210);
+}
+.languageSelected:hover{
+    background-color: rgba(25,103,210, 0.1);
+}
+
+.moreButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-family: "Roboto", arial, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    height: 50px;
+    max-height: 50px;
+    color: #5f6368;
+    font-weight: 500;
+    font-size: 1.2vw;
+    width: 80vw;
+    max-width: 80vw;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+}
+
+.moreIcon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 10px;
+}
+.moreIcon:hover{
+    background-color: rgba(117, 117, 117, 0.2);
+}

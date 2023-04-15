@@ -1,7 +1,7 @@
 import { FromLanguage, Languages } from "../types";
 const API_KEY = import.meta.env.VITE_API_KEY;
 
-export default async function Translate(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
+export default async function TranslateAPI(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
     try {
         let url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
         url += '&q=' + encodeURI(fromText);

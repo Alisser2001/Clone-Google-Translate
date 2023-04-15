@@ -1,0 +1,16 @@
+.container{
+    display: block;
+    top: 65px;
+    height: 1135px;
+    max-height: 1135px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 0;
+    position: block;
+}
+.band{
+    background-color: rgba(246,246,246,255);
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    height: 160px;
+    max-height: 160px;
+}
