@@ -1,4 +1,3 @@
-import { Container, Row, Col, Button, Form, Stack } from 'react-bootstrap';
 import LanguageSelector from './LanguageSelector';
 import { SectionType } from '../types.d';
 import TextArea from './TextArea';
@@ -9,7 +8,11 @@ import TranslateAPI from "../services/translate.js";
 import { useDebounce } from '../hooks/useDebounce';
 import styles from "../styles/Translate.module.css";
 
-export default function Translate() {
+interface Props {
+    onClick: (type: string, view: boolean) => void
+}
+
+export default function Translate({ onClick }: Props) {
     const {
         fromLanguage,
         toLanguage,
@@ -23,6 +26,10 @@ export default function Translate() {
         setToLanguage,
     } = useState();
 
+    const handleClick = (type: string, view: boolean) => {
+        onClick(type, view);
+    }
+
     const debounceFromText = useDebounce(fromText, 300);
 
     const handleClipboard = () => navigator.clipboard.writeText(toText);
@@ -34,17 +41,17 @@ export default function Translate() {
         speechSynthesis.speak(utterance);
     }
 
-    /*useEffect(() => {
-      if (debounceFromText === "") return;
-      Translate(fromLanguage, toLanguage, debounceFromText)
-        .then(result => {
-          if (result == null) return;
-          setToText(result);
-        });
-    }, [debounceFromText, fromLanguage, toLanguage]);*/
+    useEffect(() => {
+        if (debounceFromText === "") return;
+        TranslateAPI(fromLanguage, toLanguage, debounceFromText)
+            .then(result => {
+                if (result == null) return;
+                setToText(result);
+            });
+    }, [debounceFromText, fromLanguage, toLanguage]);
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={() => handleClick("all", false)}>
             <div className={styles.languajeSelector}>
                 <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
                 <button className={styles.interchangeButton} disabled={/*fromLanguage === AUTO_LANGUAGE || */ fromLanguage === toLanguage} onClick={interchangeLanguages}>
@@ -62,7 +69,7 @@ export default function Translate() {
                     value={fromText}
                     onChange={setFromText}
                 />
-                <p className={styles.countChars}>{fromText.length} / 100</p>
+                <p className={styles.countChars}>{fromText.length} / 200</p>
                 <button className={styles.deleteButton} onClick={() => setFromText("")}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={styles.deleteIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

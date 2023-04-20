@@ -26,7 +26,7 @@ export default function TextArea({ type, loading, value, onChange }: Props) {
             readOnly={type === SectionType.From ? false : true}
             autoFocus={type === SectionType.From ? true : false}
             onChange={handleChange}
-            disabled={value.length>=100}
+            disabled={value.length>=200}
             className={type === SectionType.From ? styles.containerFrom : styles.containerTo}
         />
     )

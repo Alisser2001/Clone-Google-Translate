@@ -1,11 +1,14 @@
-import { SUPPORTED_LANGUAGES/*, AUTO_LANGUAGE */} from "./constants"
+import { SUPPORTED_LANGUAGES/*, AUTO_LANGUAGE */ } from "./constants"
 
 export interface State {
     fromLanguage: FromLanguage,
     toLanguage: Languages,
     fromText: string,
     toText: string,
-    loading: boolean
+    loading: boolean,
+    viewSide: boolean,
+    viewLinks: boolean,
+    viewProfile: boolean
 }
 
 export type Languages = keyof typeof SUPPORTED_LANGUAGES;
@@ -34,8 +37,20 @@ export type Action =
         type: "SET_TO_TEXT",
         payload: string
     }
+    | {
+        type: "SET_VIEW_SIDE",
+        payload: boolean
+    }
+    | {
+        type: "SET_VIEW_LINKS",
+        payload: boolean
+    }
+    | {
+        type: "SET_VIEW_PROFILE",
+        payload: boolean
+    }
 
 export enum SectionType {
-    From= "from",
-    To= "to"
+    From = "from",
+    To = "to"
 }

@@ -1,0 +1,100 @@
+.containerSide {
+    width: 280px;
+    max-width: 280px;
+    background-color: #fff;
+    bottom: 0;
+    color: #000;
+    height: 100vh;
+    position: absolute;
+    z-index: 990;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    padding: 20px 0;
+    animation: side 0.5s;
+}
+
+@keyframes side {
+    0% {
+        left: -280px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+
+.icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font: Roboto, Arial, sans-serif;
+}
+
+.googleIcon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    max-height: 30px;
+}
+
+.translateText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    height: 30px;
+    max-height: 30px;
+    font-size: 22px;
+    margin-left: 5px;
+    font-weight: 400;
+    color: #5f6368;
+    opacity: 1;
+}
+
+.googleIcon::before {
+    content: url(https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg);
+    display: inline-block;
+    vertical-align: middle;
+    height: 20px;
+    width: 74px;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    list-style: none;
+    margin: 25px 0 0 0;
+    padding: 0;
+}
+
+.option {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: 40px;
+    padding-left: 40px;
+    align-items: center;
+}
+
+.option>a {
+    color: #000;
+}
+
+.option:hover {
+    cursor: pointer;
+}
+
+.option>a:hover {
+    color: #000;
+}
+
+.option:hover {
+    background-color: rgba(117, 117, 117, 0.2);
+}

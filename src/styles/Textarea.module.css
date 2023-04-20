@@ -20,7 +20,7 @@
     width: 670px;
     max-width: 670px;
     resize: none;
-    background-color: rgba(246,246,246,255);
+    background-color: rgba(246,246,246,1);
     color: rgba(0, 0, 0, .87);
 }
 

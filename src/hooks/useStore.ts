@@ -7,7 +7,10 @@ const initialState: State = {
     toLanguage: "en",
     fromText: "",
     toText: "",
-    loading: false
+    loading: false,
+    viewSide: false,
+    viewLinks: false,
+    viewProfile: false
 }
 
 function reducer(state: State, action: Action) {
@@ -23,11 +26,25 @@ function reducer(state: State, action: Action) {
                 fromText: state.toText,
             }
         case "SET_FROM_LANGUAGE":
+            if(state.toLanguage === action.payload){
+                return {
+                    ...state,
+                    fromLanguage: action.payload,
+                    toLanguage: state.fromLanguage
+                }
+            }
             return {
                 ...state,
                 fromLanguage: action.payload
             }
         case "SET_TO_LANGUAGE":
+            if(state.fromLanguage === action.payload){
+                return {
+                    ...state,
+                    toLanguage: action.payload,
+                    fromLanguage: state.toLanguage
+                }
+            }
             return {
                 ...state,
                 toLanguage: action.payload
@@ -45,6 +62,21 @@ function reducer(state: State, action: Action) {
                 ...state,
                 loading: false,
                 toText: action.payload
+            }
+        case "SET_VIEW_SIDE":
+            return {
+                ...state,
+                viewSide: action.payload
+            }
+        case "SET_VIEW_LINKS":
+            return {
+                ...state,
+                viewLinks: action.payload
+            }
+        case "SET_VIEW_PROFILE":
+            return {
+                ...state,
+                viewProfile: action.payload
             }
         default:
             return state;
@@ -69,13 +101,24 @@ export function useState() {
     const setToText = (payload: string) => {
         dispatch({ type: "SET_TO_TEXT", payload })
     }
-
+    const setViewSide = (payload: boolean) => {
+        dispatch({ type: "SET_VIEW_SIDE", payload })
+    }
+    const setViewLinks = (payload: boolean) => {
+        dispatch({ type: "SET_VIEW_LINKS", payload })
+    }
+    const setViewProfile = (payload: boolean) => {
+        dispatch({ type: "SET_VIEW_PROFILE", payload })
+    }
     return {
         ...state,
         interchangeLanguages,
         setFromLanguage,
         setToLanguage,
         setFromText,
-        setToText
+        setToText,
+        setViewSide,
+        setViewLinks,
+        setViewProfile
     }
 }
