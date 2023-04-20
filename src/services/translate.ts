@@ -1,5 +1,5 @@
 import { FromLanguage, Languages } from "../types";
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 export default async function TranslateAPI(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
     try {
