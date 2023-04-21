@@ -1,14 +1,14 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get } from '@nestjs/common';
 import { TranslateService } from './translate.service';
-import { FromLanguage, Languages } from './translate.entity';
+import { TranslateDataDTO } from './dto/translate.dto';
 
 @Controller('translate')
 export class TranslateController {
     constructor(
-        private TranslateService: TranslateService
+        private TranslateService: TranslateService,
     ) { }
     @Get()
-    Translate(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
-        return this.TranslateService.getTranslate(fromLanguage, toLanguage, fromText);
+    async Translate(@Body() dataTranslate: TranslateDataDTO) {
+        return await this.TranslateService.getTranslate(dataTranslate.fromLanguage, dataTranslate.toLanguage, dataTranslate.fromText);
     }
 }
