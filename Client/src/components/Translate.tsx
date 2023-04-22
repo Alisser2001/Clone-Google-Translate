@@ -1,5 +1,5 @@
 import LanguageSelector from './LanguageSelector';
-import { SectionType } from '../types.d';
+import { Languages, SectionType } from '../types.d';
 import TextArea from './TextArea';
 import { useState } from '../hooks/useStore';
 import { VOICE_FOR_LANGUAGES } from '../constants';
@@ -36,7 +36,7 @@ export default function Translate({ onClick }: Props) {
 
     const handleSpeak = () => {
         const utterance = new SpeechSynthesisUtterance(toText);
-        utterance.lang = VOICE_FOR_LANGUAGES[toLanguage];
+        utterance.lang = VOICE_FOR_LANGUAGES[toLanguage as Languages];
         utterance.rate = 0.9;
         speechSynthesis.speak(utterance);
     }
