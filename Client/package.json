@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/google-translate-api": "^2.3.2",
     "@types/react-bootstrap": "^0.32.32",
     "axios": "^1.3.6",
     "bootstrap": "5.2.3",
     "dotenv": "^16.0.3",
+    "google-translate-api": "^2.3.0",
     "google-translate-api-browser": "^3.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",

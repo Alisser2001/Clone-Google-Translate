@@ -11,6 +11,9 @@ export default function SideComponent() {
                 <li className={styles.option}>
                     <a href="https://github.com/Alisser2001/Clone-Google-Translate.git" target="_blank">Project Repository</a>
                 </li>
+                <li className={styles.option}>
+                <a href="https://cors-anywhere.herokuapp.com/" target="_black">https://cors-anywhere.herokuapp.com/</a>
+                </li>
             </ul>
         </div>
     )

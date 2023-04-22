@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException } from '@nestjs/common';
 import { FromLanguage, Languages } from './translate.entity';
-import { translate } from "google-translate-api";
+const translate = require("google-translate-api");
 
 @Injectable()
 export class TranslateService {
@@ -8,7 +8,7 @@ export class TranslateService {
         return await translate(fromText, { from: fromLanguage, to: toLanguage }).then((res: any) => {
             return res.text;
         }).catch((err: any) => {
-            console.error(err);
+            throw new BadRequestException("Algo ha salido mal...", err.code);
         });
         /*let url = `https://translation.googleapis.com/language/translate/v2?key=${process.env.API_KEY}`;
         const body = JSON.stringify({
