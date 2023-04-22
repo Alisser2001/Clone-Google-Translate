@@ -1,11 +1,13 @@
 .container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     position: absolute;
+    flex-wrap: wrap;
     background-color: transparent;
-    margin: 0 42px;
+    margin: 0 80px;
     border: 1px solid rgba(0, 0, 0, .12);
+    width: 1202px;
+    max-width: 1202px;
     top: 135px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -30,12 +32,14 @@
 }
 
 .fromLanguageCont {
-    width: 610px;
-    max-width: 610px;
+    width: 600px;
+    max-width: 600px;
     height: 240px;
     max-height: 240px;
     display: flex;
     flex-direction: column;
+    margin: 0;
+    border-right: 1px solid rgba(0, 0, 0, .12);
 }
 
 .interchangeButton {
@@ -98,18 +102,13 @@
 }
 
 .toLanguageCont {
-    width: 670px;
-    max-width: 670px;
+    width: 600px;
+    max-width: 600px;
     height: 240px;
     max-height: 240px;
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-.toLanguageText {
-    display: flex;
-    flex-direction: row;
 }
 
 .copyButton {
@@ -136,7 +135,7 @@
     position: absolute;
     justify-content: space-around;
     top: 60px;
-    left: 560px;
+    left: 530px;
     flex-direction: row;
     color: rgba(0, 0, 0, .87);
     padding: 4px;
@@ -185,4 +184,43 @@
     border: none;
     border-radius: 0;
     background-color: rgba(246, 246, 246, 255);
+}
+
+.startIcon{
+    position: absolute;
+    top: 50vh;
+    left: 36.5vw;
+    width: 200px;
+    max-width: 200px;
+    height: 150px;
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.startButton{
+    border: 1px solid rgba(0, 0, 0, .12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: 80px;
+    max-width: 80px;
+    height: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.textStart{
+    width: 100px;
+    max-width: 100px;
+    height: 10px;
+    max-height: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5px;
 }

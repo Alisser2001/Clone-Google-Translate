@@ -1,11 +1,11 @@
-import { FromLanguage, Languages } from "../types";
+import { LanguagesFrom, Languages } from "../types";
 //const SERVER_URL = import.meta.env.VITE_APP_SERVER_URL;
 //import axios, { AxiosRequestConfig } from "axios";
 import { setCORS } from "google-translate-api-browser";
 // setting up cors-anywhere server address
 const translate = setCORS("https://cors-anywhere.herokuapp.com/");
 
-export default async function TranslateAPI(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
+export default async function TranslateAPI(fromLanguage: LanguagesFrom, toLanguage: LanguagesFrom, fromText: string) {
     try {
         return await translate(fromText, { from: fromLanguage, to: toLanguage })
             .then(res => {

@@ -1,21 +1,21 @@
-import { SUPPORTED_LANGUAGES/*, AUTO_LANGUAGE*/ } from "./constants"
+import { SUPPORTED_FROM_LANGUAGES, SUPPORTED_TO_LANGUAGES } from "./constants"
+
+export type Languages = keyof typeof SUPPORTED_TO_LANGUAGES;
+
+export type LanguagesFrom = keyof typeof SUPPORTED_FROM_LANGUAGES;
 
 export interface State {
-    fromLanguage: FromLanguage,
-    toLanguage: Languages,
+    fromLanguage: LanguagesFrom,
+    toLanguage: LanguagesFrom,
     fromText: string,
     toText: string,
     loading: boolean,
     viewSide: boolean,
     viewLinks: boolean,
-    viewProfile: boolean
+    viewProfile: boolean,
+    viewAllLangsFrom: boolean,
+    viewAllLangsTo: boolean
 }
-
-export type Languages = keyof typeof SUPPORTED_LANGUAGES;
-
-//export type AutoLanguage = typeof AUTO_LANGUAGE;
-
-export type FromLanguage = Languages //| AutoLanguage;
 
 export type Action =
     | {
@@ -23,11 +23,11 @@ export type Action =
     }
     | {
         type: "SET_FROM_LANGUAGE",
-        payload: FromLanguage
+        payload: LanguagesFrom
     }
     | {
         type: "SET_TO_LANGUAGE",
-        payload: Languages
+        payload: LanguagesFrom
     }
     | {
         type: "SET_FROM_TEXT",
@@ -47,6 +47,14 @@ export type Action =
     }
     | {
         type: "SET_VIEW_PROFILE",
+        payload: boolean
+    }
+    | {
+        type: "SET_VIEW_ALL_LANGS_FROM"
+        payload: boolean
+    }
+    | {
+        type: "SET_VIEW_ALL_LANGS_TO"
         payload: boolean
     }
 

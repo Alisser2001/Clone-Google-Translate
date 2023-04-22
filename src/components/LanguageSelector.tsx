@@ -1,19 +1,27 @@
 import styles from "../styles/LanguageSelector.module.css";
-import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from "../constants";
-import { Languages, FromLanguage, SectionType } from '../types.d';
+import { AUTO_LANGUAGE, SUPPORTED_TO_LANGUAGES } from "../constants";
+import { Languages, LanguagesFrom, SectionType } from '../types.d';
 
-type Props =
-    | {
-        type: SectionType.From, value: FromLanguage, onChange: (language: FromLanguage) => void
+type Props = {
+    type: SectionType.From | SectionType.To,
+    value: LanguagesFrom,
+    onChange: (language: LanguagesFrom) => void,
+    handleViewAll: (type: boolean) => void,
+    viewAllLangsFrom: boolean,
+    viewAllLangsTo: boolean
+};
+
+
+
+export default function LanguageSelector({ onChange, value, type, handleViewAll, viewAllLangsFrom, viewAllLangsTo}: Props) {
+
+    const handleViewAllLang = () => {
+        if(type===SectionType.From){
+            handleViewAll(!viewAllLangsFrom)
+        }else{
+            handleViewAll(!viewAllLangsTo)
+        }
     }
-    | {
-        type: SectionType.To, value: Languages, onChange: (language: Languages) => void
-    }
-    ;
-
-
-
-export default function LanguageSelector({ onChange, value, type }: Props) {
 
     const handleLanguage = (e: React.MouseEvent<HTMLLIElement>) => {
         onChange((e.currentTarget as HTMLLIElement).getAttribute("value") as Languages)
@@ -23,14 +31,14 @@ export default function LanguageSelector({ onChange, value, type }: Props) {
         <div>
             <ul className={type === SectionType.From ? styles.contSelectFrom : styles.contSelectTo}>
                 {type === SectionType.From
-                    ? <>{/*<li className={value === AUTO_LANGUAGE ? styles.autoLanguageSelected : styles.autoLanguage} key={AUTO_LANGUAGE} value={AUTO_LANGUAGE} onClick={handleLanguage}>Detect Language</li>*/}
-                        {Object.entries({ ...SUPPORTED_LANGUAGES }).map(([key, lan], index) => {
+                    ? <>{<li className={value === AUTO_LANGUAGE ? styles.autoLanguageSelected : styles.autoLanguage} key={AUTO_LANGUAGE} value={AUTO_LANGUAGE} onClick={handleLanguage}>Detect Language</li>}
+                        {Object.entries({ ...SUPPORTED_TO_LANGUAGES }).map(([key, lan], index) => {
                             if (index < 3) return (<li className={value === key ? styles.languageSelected : styles.language} key={key} value={key} onClick={handleLanguage}>{lan}</li>)
                         })}</>
-                    : Object.entries({ ...SUPPORTED_LANGUAGES }).map(([key, lan], index) => {
+                    : Object.entries({ ...SUPPORTED_TO_LANGUAGES }).map(([key, lan], index) => {
                         if (index < 3) return (<li className={value === key ? styles.languageSelected : styles.language} key={key} value={key} onClick={handleLanguage}>{lan}</li>)
                     })}
-                <li className={styles.moreButton}>
+                <li className={styles.moreButton} onClick={handleViewAllLang}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M12 5l0 14"></path>
@@ -39,14 +47,6 @@ export default function LanguageSelector({ onChange, value, type }: Props) {
                     </svg>
                 </li>
             </ul>
-            {/*<select onChange={handleLanguage} className={type === SectionType.From ? styles.contSelectFrom : styles.contSelectTo}>
-                {type === SectionType.From && <option value={AUTO_LANGUAGE}>Detectar idioma</option>}
-                Object.entries(SUPPORTED_LANGUAGES).map(([key, lan]) => {
-                    return (
-                        <option key={key} value={key}>{lan}</option>
-                    )
-                })
-            </select>*/}
         </div>
     );
 }
