@@ -4,7 +4,7 @@ export const SUPPORTED_LANGUAGES = {
     fr: "Francés"
 }
 
-//export const AUTO_LANGUAGE = "auto";
+export const AUTO_LANGUAGE = "auto";
 
 export const VOICE_FOR_LANGUAGES = {
     en: "en-GB",

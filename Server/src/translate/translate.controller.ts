@@ -8,7 +8,7 @@ export class TranslateController {
         private TranslateService: TranslateService,
     ) { }
     @Get()
-    async Translate(@Body() dataTranslate: TranslateDataDTO) {
-        return await this.TranslateService.getTranslate(dataTranslate.fromLanguage, dataTranslate.toLanguage, dataTranslate.fromText);
+    Translate(@Body() dataTranslate: TranslateDataDTO) {
+        return this.TranslateService.getTranslate(dataTranslate.fromLanguage, dataTranslate.toLanguage, dataTranslate.fromText);
     }
 }

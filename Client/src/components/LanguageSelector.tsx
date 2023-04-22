@@ -1,5 +1,5 @@
 import styles from "../styles/LanguageSelector.module.css";
-import { SUPPORTED_LANGUAGES } from "../constants";
+import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from "../constants";
 import { Languages, FromLanguage, SectionType } from '../types.d';
 
 type Props =
@@ -22,9 +22,14 @@ export default function LanguageSelector({ onChange, value, type }: Props) {
     return (
         <div>
             <ul className={type === SectionType.From ? styles.contSelectFrom : styles.contSelectTo}>
-                {Object.entries(SUPPORTED_LANGUAGES).map(([key, lan], index) => {
-                    if (index < 3) return (<li className={value === key ? styles.languageSelected : styles.language} key={key} value={key} onClick={handleLanguage}>{lan}</li>)
-                })}
+                {type === SectionType.From
+                    ? <>{/*<li className={value === AUTO_LANGUAGE ? styles.autoLanguageSelected : styles.autoLanguage} key={AUTO_LANGUAGE} value={AUTO_LANGUAGE} onClick={handleLanguage}>Detect Language</li>*/}
+                        {Object.entries({ ...SUPPORTED_LANGUAGES }).map(([key, lan], index) => {
+                            if (index < 3) return (<li className={value === key ? styles.languageSelected : styles.language} key={key} value={key} onClick={handleLanguage}>{lan}</li>)
+                        })}</>
+                    : Object.entries({ ...SUPPORTED_LANGUAGES }).map(([key, lan], index) => {
+                        if (index < 3) return (<li className={value === key ? styles.languageSelected : styles.language} key={key} value={key} onClick={handleLanguage}>{lan}</li>)
+                    })}
                 <li className={styles.moreButton}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
