@@ -1,4 +1,4 @@
-import { SUPPORTED_LANGUAGES, AUTO_LANGUAGE } from "./constants"
+import { SUPPORTED_LANGUAGES/*, AUTO_LANGUAGE*/ } from "./constants"
 
 export interface State {
     fromLanguage: FromLanguage,
@@ -13,9 +13,9 @@ export interface State {
 
 export type Languages = keyof typeof SUPPORTED_LANGUAGES;
 
-export type AutoLanguage = typeof AUTO_LANGUAGE;
+//export type AutoLanguage = typeof AUTO_LANGUAGE;
 
-export type FromLanguage = Languages | AutoLanguage;
+export type FromLanguage = Languages //| AutoLanguage;
 
 export type Action =
     | {
