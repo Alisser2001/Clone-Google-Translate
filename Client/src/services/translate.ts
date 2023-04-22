@@ -3,7 +3,7 @@ import { FromLanguage, Languages } from "../types";
 //import axios, { AxiosRequestConfig } from "axios";
 import { setCORS } from "google-translate-api-browser";
 // setting up cors-anywhere server address
-const translate = setCORS("http://cors-anywhere.herokuapp.com/");
+const translate = setCORS("https://cors-anywhere.herokuapp.com/");
 
 export default async function TranslateAPI(fromLanguage: FromLanguage, toLanguage: Languages, fromText: string) {
     try {
