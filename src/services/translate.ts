@@ -12,7 +12,7 @@ export default async function TranslateAPI(fromLanguage: LanguagesFrom, toLangua
                 return res.text
             })
             .catch(err => {
-                console.log(err);
+                return "Something went wrong, enable the translator and try again";
             });
 
         /*let body = JSON.stringify({

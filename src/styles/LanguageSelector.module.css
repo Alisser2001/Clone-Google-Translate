@@ -173,12 +173,16 @@
     border-bottom: 1px solid rgba(0, 0, 0, .12);
 }
 
-.moreIcon{
+.moreIcon, .closeIcon{
     width: 40px;
     height: 40px;
     border-radius: 50%;
     padding: 10px;
 }
 .moreIcon:hover{
+    background-color: rgba(117, 117, 117, 0.2);
+}
+
+.closeIcon:hover{
     background-color: rgba(117, 117, 117, 0.2);
 }

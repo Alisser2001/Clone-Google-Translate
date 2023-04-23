@@ -10,25 +10,33 @@ import LinksComponent from './components/LinksComponent';
 import ProfileComponent from './components/ProfileComponent';
 
 function App() {
-  const { setViewSide, setViewLinks, setViewProfile, viewSide, viewLinks, viewProfile } = useState();
+  const { setViewSide, setViewLinks, setViewProfile, setViewAllLangsFrom, setViewAllLangsTo, viewSide, viewLinks, viewProfile } = useState();
   const handleView = (type: string, view: boolean) => {
     switch (type) {
       case "side":
         setViewLinks(false);
         setViewProfile(false);
+        setViewAllLangsTo(false);
+        setViewAllLangsFrom(false);
         setViewSide(view);
         break;
       case "links":
         setViewSide(false);
         setViewProfile(false);
+        setViewAllLangsTo(false);
+        setViewAllLangsFrom(false);
         setViewLinks(view);
         break;
       case "profile":
         setViewSide(false);
         setViewLinks(false);
+        setViewAllLangsTo(false);
+        setViewAllLangsFrom(false);
         setViewProfile(view);
         break;
       case "all":
+        setViewAllLangsTo(false);
+        setViewAllLangsFrom(false);
         setViewSide(view);
         setViewLinks(view);
         setViewProfile(view);

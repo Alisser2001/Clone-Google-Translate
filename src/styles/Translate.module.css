@@ -198,14 +198,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #757575;
 }
-
+.startIcon:hover{
+    color: #757575;
+}
 .startButton{
     border: 1px solid rgba(0, 0, 0, .12);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding:25px;
     width: 80px;
     max-width: 80px;
     height: 80px;
@@ -215,8 +218,8 @@
 }
 
 .textStart{
-    width: 100px;
-    max-width: 100px;
+    width: 200px;
+    max-width: 200px;
     height: 10px;
     max-height: 10px;
     display: flex;

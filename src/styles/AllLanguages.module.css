@@ -23,6 +23,15 @@
     border-top: 1px solid rgba(0, 0, 0, .12);
 }
 
+.searchText{
+    display: flex;
+    align-items: center;
+    width: 1150px;
+    max-width: 1150px;
+    height: 10vh;
+    max-height: 10vh;
+    margin: 0;
+}
 .listLangs {
     display: flex;
     flex-direction: column;
