@@ -109,13 +109,14 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    background-color: rgba(246, 246, 246, 1);
 }
 
 .copyButton {
     display: flex;
     position: absolute;
     justify-content: space-around;
-    top: 192px;
+    top: 200px;
     left: 15px;
     flex-direction: row;
     color: rgba(0, 0, 0, .87);
@@ -152,13 +153,13 @@
 .countChars{
     display: flex;
     position: absolute;
-    top: 250px;
-    left: 520px;
+    top: 260px;
+    left: 510px;
     flex-direction: row;
     justify-content: center;
     font-size: 14px;
-    width: 70px;
-    max-width: 70px;
+    width: 80px;
+    max-width: 80px;
     height: 30px;
     max-height: 30px;
     margin: 0;
@@ -171,7 +172,7 @@
     display: flex;
     position: absolute;
     justify-content: space-around;
-    top: 192px;
+    top: 200px;
     left: 60px;
     flex-direction: row;
     color: rgba(0, 0, 0, .87);
@@ -226,4 +227,33 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 5px;
+}
+
+.startIcon:hover>.startMessage{
+    opacity: 1;
+}
+
+.startMessage{
+    opacity: 0;
+    width: 200px;
+    max-width: 200px;
+    height: 120px;
+    max-height: 120px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, .87);
+    position: absolute;
+    top: -17vh;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-size: 1vw;
+}
+.startMessage>p{
+    margin: 0;
 }

@@ -1,9 +1,8 @@
 import { LanguagesFrom, Languages } from "../types";
-//const SERVER_URL = import.meta.env.VITE_APP_SERVER_URL;
-//import axios, { AxiosRequestConfig } from "axios";
 import { setCORS } from "google-translate-api-browser";
 // setting up cors-anywhere server address
-const translate = setCORS("https://cors-anywhere.herokuapp.com/");
+const CORS_URL = import.meta.env.VITE_APP_CORS_URL;
+const translate = setCORS(CORS_URL);
 
 export default async function TranslateAPI(fromLanguage: LanguagesFrom, toLanguage: LanguagesFrom, fromText: string) {
     try {
@@ -14,16 +13,6 @@ export default async function TranslateAPI(fromLanguage: LanguagesFrom, toLangua
             .catch(err => {
                 return "Something went wrong, enable the translator and try again";
             });
-
-        /*let body = JSON.stringify({
-            "fromLanguage": fromLanguage,
-            "toLanguage": toLanguage,
-            "formText": fromText
-        });
-        return await axios.get(SERVER_URL, body as AxiosRequestConfig).then((response) => {
-            return response;
-        });*/
-
         /*let url = `https://translation.googleapis.com/language/translate/v2?key=${process.env.API_KEY}`;
         const body = JSON.stringify({
             "q": encodeURI(fromText),
@@ -39,15 +28,7 @@ export default async function TranslateAPI(fromLanguage: LanguagesFrom, toLangua
         }).catch(error => {
             throw new BadRequestException("Algo ha salido mal al traducir", "Bad Request");
         });*/
-        /*
-        try {
-            return await axios.post(url, body).then((response) => {
-                return response.data.translations[0].translatedText;
-            });
-        } catch (e) {
-            throw new BadRequestException(`Algo salió mal al traducir...`, "Bad Request");
-        }*/
     } catch (e) {
-        return "Error. Algo ha salido mal...";
+        return "Something went wrong, enable the translator and try again";
     }
 }

@@ -31,7 +31,7 @@ export default function ProfileComponent() {
                     </li>
                     <li className={styles.tecElement}>
                         <img src="google.png" className={styles.tecImg}/>
-                        <p className={styles.tecName}>Cloud Translate API</p>
+                        <p className={styles.tecName}>Google Translate API</p>
                     </li>
                 </ul>
             </div>
