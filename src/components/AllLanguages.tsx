@@ -1,6 +1,6 @@
-import { SUPPORTED_FROM_LANGUAGES, SUPPORTED_TO_LANGUAGES } from "../constants"
+import { SUPPORTED_FROM_LANGUAGES, SUPPORTED_TO_LANGUAGES } from "../utils/constants"
 import styles from "../styles/AllLanguages.module.css";
-import { LanguagesFrom, Languages, SectionType } from "../types.d";
+import { LanguagesFrom, Languages, SectionType } from "../utils/types.d";
 
 type Props = {
     value: LanguagesFrom,

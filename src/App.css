@@ -8,9 +8,10 @@
 #app {
   width: 100vw;
   max-width: 100vw;
-  height: 170vh;
-  min-height: 50vh;
+  height: auto;
+  min-height: 100vh;
   margin: 0;
+  padding: 0;
   overflow: hidden;
   font-family: "Roboto", arial, sans-serif;
 }

@@ -1,0 +1,48 @@
+.contentRight {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    width: 50%;
+}
+
+.menuIcon {
+    color: #5f6368;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.menuIcon:hover {
+    background-color: rgba(117, 117, 117, 0.2);
+}
+
+.iconImg {
+    width: 48px;
+    height: 48px;
+    padding: 2px;
+    border-radius: 50%;
+    margin: 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.iconImg:hover {
+    background-color: rgba(117, 117, 117, 0.2);
+}
+
+.iconImg>img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
