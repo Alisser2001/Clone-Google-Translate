@@ -1,5 +1,5 @@
 import styles from "../styles/Textarea.module.css";
-import { SectionType } from "../types.d";
+import { SectionType } from "../utils/types.d";
 
 interface Props {
     type: SectionType,

@@ -1,10 +1,22 @@
 //import { AUTO_LANGUAGE } from '../constants';
-import { AUTO_LANGUAGE } from '../constants';
-import { Action, Languages, State, LanguagesFrom } from '../types';
-import { useReducer } from "react";
-import { Reducer } from 'react';
+import { AUTO_LANGUAGE } from '../utils/constants';
+import { Action, Languages, State, LanguagesFrom } from '../utils/types';
+import { create } from 'zustand';
 
-const initialState: State = {
+type StateWithActions = State & {
+    interchangeLanguages: () => void;
+    setFromLanguage: (payload: LanguagesFrom) => void;
+    setToLanguage: (payload: LanguagesFrom) => void;
+    setFromText: (payload: string) => void;
+    setToText: (payload: string) => void;
+    setViewSide: (payload: boolean) => void;
+    setViewLinks: (payload: boolean) => void;
+    setViewProfile: (payload: boolean) => void;
+    setViewAllLangsFrom: (payload: boolean) => void;
+    setViewAllLangsTo: (payload: boolean) => void;
+};
+
+export const useState = create<StateWithActions>((set, get) => ({
     fromLanguage: AUTO_LANGUAGE,
     toLanguage: "en",
     fromText: "",
@@ -14,133 +26,67 @@ const initialState: State = {
     viewLinks: false,
     viewProfile: false,
     viewAllLangsFrom: false,
-    viewAllLangsTo: false
-}
+    viewAllLangsTo: false,
 
-const reducer: Reducer<State, Action> = (state: State, action: Action) => {
-    switch (action.type) {
-        case "INTERCHANGE_LANGUAGES":
-            if (state.fromLanguage === AUTO_LANGUAGE) return state;
-            const loadingFromInterchange = state.toText !== "";
-            return {
-                ...state,
-                fromLanguage: state.toLanguage,
+    interchangeLanguages: () => {
+        const { fromLanguage, toLanguage, toText } = get();
+        if (fromLanguage === AUTO_LANGUAGE) return;
+        set({
+            fromLanguage: toLanguage,
+            toLanguage: fromLanguage,
+            loading: toText !== "",
+            fromText: toText,
+            toText: "",
+        });
+    },
+
+    setFromLanguage: (payload) => {
+        const { toLanguage } = get();
+        if (toLanguage === payload) {
+            set((state) => ({
+                fromLanguage: payload,
                 toLanguage: state.fromLanguage,
-                loading: loadingFromInterchange,
-                fromText: state.toText,
-            }
-        case "SET_FROM_LANGUAGE":
-            if (state.toLanguage === action.payload) {
-                return {
-                    ...state,
-                    fromLanguage: action.payload,
-                    toLanguage: state.fromLanguage
-                }
-            }
-            return {
-                ...state,
-                fromLanguage: action.payload
-            }
-        case "SET_TO_LANGUAGE":
-            if (state.fromLanguage === action.payload) {
-                return {
-                    ...state,
-                    toLanguage: action.payload,
-                    fromLanguage: state.toLanguage
-                }
-            }
-            return {
-                ...state,
-                toLanguage: action.payload
-            }
-        case "SET_FROM_TEXT":
-            const loadingFromText = action.payload !== "";
-            return {
-                ...state,
-                loading: loadingFromText,
-                fromText: action.payload,
-                toText: ""
-            }
-        case "SET_TO_TEXT":
-            return {
-                ...state,
-                loading: false,
-                toText: action.payload
-            }
-        case "SET_VIEW_SIDE":
-            return {
-                ...state,
-                viewSide: action.payload
-            }
-        case "SET_VIEW_LINKS":
-            return {
-                ...state,
-                viewLinks: action.payload
-            }
-        case "SET_VIEW_PROFILE":
-            return {
-                ...state,
-                viewProfile: action.payload
-            }
-        case "SET_VIEW_ALL_LANGS_FROM":
-            return {
-                ...state,
-                viewAllLangsFrom: action.payload
-            }
-        case "SET_VIEW_ALL_LANGS_TO":
-            return {
-                ...state,
-                viewAllLangsTo: action.payload
-            }
-        default:
-            return state;
-    }
-}
+            }));
+        } else {
+            set({ fromLanguage: payload });
+        }
+    },
 
-export function useState() {
-    const [state, dispatch] = useReducer(reducer, initialState as State);
+    setToLanguage: (payload) => {
+        const { fromLanguage } = get();
+        if (fromLanguage === payload) {
+            set((state) => ({
+                toLanguage: payload,
+                fromLanguage: state.toLanguage,
+            }));
+        } else {
+            set({ toLanguage: payload });
+        }
+    },
 
-    const interchangeLanguages = () => {
-        dispatch({ type: "INTERCHANGE_LANGUAGES" })
-    }
-    const setFromLanguage = (payload: LanguagesFrom) => {
-        dispatch({ type: "SET_FROM_LANGUAGE", payload })
-    }
-    const setToLanguage = (payload: LanguagesFrom) => {
-        dispatch({ type: "SET_TO_LANGUAGE", payload })
-    }
-    const setFromText = (payload: string) => {
-        dispatch({ type: "SET_FROM_TEXT", payload })
-    }
-    const setToText = (payload: string) => {
-        dispatch({ type: "SET_TO_TEXT", payload })
-    }
-    const setViewSide = (payload: boolean) => {
-        dispatch({ type: "SET_VIEW_SIDE", payload })
-    }
-    const setViewLinks = (payload: boolean) => {
-        dispatch({ type: "SET_VIEW_LINKS", payload })
-    }
-    const setViewProfile = (payload: boolean) => {
-        dispatch({ type: "SET_VIEW_PROFILE", payload })
-    }
-    const setViewAllLangsFrom = (payload: boolean) => {
-        dispatch({ type: "SET_VIEW_ALL_LANGS_FROM", payload})
-    }
-    const setViewAllLangsTo = (payload: boolean) => {
-        dispatch({ type: "SET_VIEW_ALL_LANGS_TO", payload})
-    }
-    return {
-        ...state,
-        interchangeLanguages,
-        setFromLanguage,
-        setToLanguage,
-        setFromText,
-        setToText,
-        setViewSide,
-        setViewLinks,
-        setViewProfile,
-        setViewAllLangsFrom,
-        setViewAllLangsTo
-    }
-}
+    setFromText: (payload) => {
+        set({
+            fromText: payload,
+            loading: payload !== "",
+            toText: "",
+        });
+    },
+
+    setToText: (payload) => {
+        set({
+            toText: payload,
+            loading: false,
+        });
+    },
+
+    setViewSide: (payload) => set({ viewSide: payload }),
+
+    setViewLinks: (payload) => set({ viewLinks: payload }),
+
+    setViewProfile: (payload) => set({ viewProfile: payload }),
+
+    setViewAllLangsFrom: (payload) => set({ viewAllLangsFrom: payload }),
+
+    setViewAllLangsTo: (payload) => set({ viewAllLangsTo: payload }),
+}));
+

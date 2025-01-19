@@ -1,6 +1,6 @@
 import styles from "../styles/LanguageSelector.module.css";
-import { AUTO_LANGUAGE, SUPPORTED_TO_LANGUAGES } from "../constants";
-import { Languages, LanguagesFrom, SectionType } from '../types.d';
+import { AUTO_LANGUAGE, SUPPORTED_TO_LANGUAGES } from "../utils/constants";
+import { Languages, LanguagesFrom, SectionType } from '../utils/types.d';
 
 type Props = {
     type: SectionType.From | SectionType.To,
@@ -40,23 +40,23 @@ export default function LanguageSelector({ onChange, value, type, handleViewAll,
                     })}
                 <li className={styles.moreButton} onClick={handleViewAllLang}>
                     {type === SectionType.From && !viewAllLangsFrom ?
-                        <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M12 5l0 14"></path>
                             <path d="M18 13l-6 6"></path>
                             <path d="M6 13l6 6"></path>
                         </svg>
-                        : type === SectionType.To && !viewAllLangsTo ? <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        : type === SectionType.To && !viewAllLangsTo ? <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M12 5l0 14"></path>
                             <path d="M18 13l-6 6"></path>
                             <path d="M6 13l6 6"></path>
                         </svg>
-                            : type === SectionType.From ? <svg xmlns="http://www.w3.org/2000/svg" className={styles.closeIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            : type === SectionType.From ? <svg xmlns="http://www.w3.org/2000/svg" className={styles.closeIcon} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M18 6l-12 12"></path>
                                 <path d="M6 6l12 12"></path>
-                            </svg> : <svg xmlns="http://www.w3.org/2000/svg" className={styles.closeIcon} width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            </svg> : <svg xmlns="http://www.w3.org/2000/svg" className={styles.closeIcon} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M18 6l-12 12"></path>
                                 <path d="M6 6l12 12"></path>
