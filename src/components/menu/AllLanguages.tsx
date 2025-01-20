@@ -1,5 +1,5 @@
 import { SUPPORTED_FROM_LANGUAGES, SUPPORTED_TO_LANGUAGES } from "../../utils/constants"
-import styles from "../../styles/AllLanguages.module.css";
+import styles from "./AllLanguages.module.css";
 import { LanguagesFrom, LanguagesTo, SectionType } from "../../utils/types.d";
 import { useState } from "../../hooks/useStore";
 
