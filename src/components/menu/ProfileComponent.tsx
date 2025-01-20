@@ -1,4 +1,4 @@
-import styles from "../styles/ProfileComponent.module.css";
+import styles from "../../styles/ProfileComponent.module.css";
 
 export default function ProfileComponent() {
     return (

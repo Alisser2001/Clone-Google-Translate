@@ -1,0 +1,8 @@
+.toLanguageCont {
+    width: 50%;
+    height: auto;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}

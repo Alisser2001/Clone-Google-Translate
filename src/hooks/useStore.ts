@@ -1,22 +1,9 @@
 //import { AUTO_LANGUAGE } from '../constants';
 import { AUTO_LANGUAGE } from '../utils/constants';
-import { Action, Languages, State, LanguagesFrom } from '../utils/types';
+import { Actions, State } from '../utils/types';
 import { create } from 'zustand';
 
-type StateWithActions = State & {
-    interchangeLanguages: () => void;
-    setFromLanguage: (payload: LanguagesFrom) => void;
-    setToLanguage: (payload: LanguagesFrom) => void;
-    setFromText: (payload: string) => void;
-    setToText: (payload: string) => void;
-    setViewSide: (payload: boolean) => void;
-    setViewLinks: (payload: boolean) => void;
-    setViewProfile: (payload: boolean) => void;
-    setViewAllLangsFrom: (payload: boolean) => void;
-    setViewAllLangsTo: (payload: boolean) => void;
-};
-
-export const useState = create<StateWithActions>((set, get) => ({
+export const useState = create<State & Actions>((set, get) => ({
     fromLanguage: AUTO_LANGUAGE,
     toLanguage: "en",
     fromText: "",

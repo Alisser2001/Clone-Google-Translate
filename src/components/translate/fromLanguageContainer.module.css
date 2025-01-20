@@ -1,0 +1,9 @@
+.fromLanguageCont {
+    width: 50%;
+    height: auto;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    border-right: 1px solid rgba(0, 0, 0, .12);
+}

@@ -1,70 +1,25 @@
 .container {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 30px 200px;
+}
+
+.translateArea{
+    display: flex;
     flex-direction: row;
-    position: absolute;
     flex-wrap: wrap;
-    background-color: transparent;
-    margin: 0 80px;
+    width: 100%;
+    height: auto;
     border: 1px solid rgba(0, 0, 0, .12);
-    width: 1202px;
-    max-width: 1202px;
-    top: 135px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border: 1px solid #ddd;
+    border-radius: 8px;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-.languajeSelector {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 50px;
-    max-height: 50px;
-    background-color: rgba(255, 255, 255, 1);
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom: 1px solid rgba(0, 0, 0, .12);
-}
 
-.fromLanguageCont {
-    width: 600px;
-    max-width: 600px;
-    height: 240px;
-    max-height: 240px;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    border-right: 1px solid rgba(0, 0, 0, .12);
-}
 
-.interchangeButton {
-    display: flex;
-    flex-direction: row;
-    color: rgba(0, 0, 0, .87);
-    padding: 4px;
-    justify-content: center;
-    width: 40px;
-    max-width: 40px;
-    height: 38px;
-    max-height: 38px;
-    border: none;
-    border-radius: 0;
-    background-color: rgba(255, 255, 255, 1);
-}
 
-.interchangeButton:hover {
-    text-decoration: none;
-}
-
-.interchangeButton:disabled > .interchangeIcon{
-    background-color: rgba(255, 255, 255, 1);
-    cursor:default;
-}
 
 .copyButton:hover {
     text-decoration: none;
@@ -74,7 +29,6 @@
     text-decoration: none;
 }
 
-.interchangeIcon,
 .copyIcon,
 .speakIcon,
 .deleteIcon {
@@ -83,10 +37,6 @@
     height: 30px;
     padding: 4px;
     color: #5f6368;
-}
-
-.interchangeIcon:hover {
-    background-color: rgba(117, 117, 117, 0.2);
 }
 
 .deleteIcon:hover {
@@ -101,16 +51,7 @@
     background-color: rgba(117, 117, 117, 0.2);
 }
 
-.toLanguageCont {
-    width: 600px;
-    max-width: 600px;
-    height: 240px;
-    max-height: 240px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: rgba(246, 246, 246, 1);
-}
+
 
 .copyButton {
     display: flex;
