@@ -1,11 +1,9 @@
-import styles from "../styles/Textarea.module.css";
+import styles from "./textarea.module.css";
 import { SectionType } from "../utils/types.d";
+import { useState } from "../hooks/useStore";
 
 interface Props {
-    type: SectionType,
-    loading?: boolean,
-    onChange: (language: string) => void,
-    value: string
+    type: SectionType
 };
 
 const getPlaceHolder = (type: SectionType, loading?: boolean) => {
@@ -14,20 +12,24 @@ const getPlaceHolder = (type: SectionType, loading?: boolean) => {
     return "Traducción"
 }
 
-export default function TextArea({ type, loading, value, onChange }: Props) {
-
+export default function TextArea({ type }: Props) {
+    const { loading, fromText, toText, setFromText, setToText } = useState();
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        onChange(e.target.value);
+        if (type === SectionType.From) {
+            setFromText(e.target.value);
+        } else {
+            setToText(e.target.value);
+        }
     }
     return (
         <textarea
             placeholder={getPlaceHolder(type, loading)}
-            value={value}
+            value={type === SectionType.From ? fromText : toText}
             readOnly={type === SectionType.From ? false : true}
             autoFocus={type === SectionType.From ? true : false}
             onChange={handleChange}
-            disabled={value.length>=1000}
-            className={type === SectionType.From ? styles.containerFrom : styles.containerTo}
+            disabled={type === SectionType.From ? fromText.length >= 1000 : toText.length >= 1000}
+            className={styles.container}
         />
     )
 }

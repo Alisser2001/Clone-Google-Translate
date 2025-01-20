@@ -1,0 +1,35 @@
+.optionText{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding: 8px 15px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, .12);
+    margin-right: 10px;
+}
+
+.optionText:hover{
+    border: 1px solid rgba(0, 0, 0, .12);
+    background-color: rgba(25,103,210, 0.1);
+}
+
+.optionText:nth-child(1){
+    border: 1px solid rgba(0, 0, 0, .12);
+    background-color: rgba(25,103,210, 0.1);
+}
+
+.icon{
+    color: rgb(25,103,210);
+}
+
+.text{
+    width: auto;
+    height: 24px;
+    padding: 0;
+    margin: 0px 0px 0px 5px;
+    color: rgb(25,103,210);
+}

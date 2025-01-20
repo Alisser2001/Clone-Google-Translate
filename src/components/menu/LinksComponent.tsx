@@ -1,4 +1,4 @@
-import styles from "../styles/LinksComponent.module.css";
+import styles from "./LinksComponent.module.css";
 
 export default function LinksComponent() {
     return (

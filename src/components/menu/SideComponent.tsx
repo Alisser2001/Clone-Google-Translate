@@ -1,4 +1,4 @@
-import styles from "../styles/SideComponent.module.css";
+import styles from "./SideComponent.module.css";
 
 export default function SideComponent() {
     return (
