@@ -1,25 +1,41 @@
 .fromLanguageCont {
-    width: 48%;
+    width: 50%;
     height: auto;
     min-height: 240px;
     display: flex;
     flex-direction: row;
+    justify-content: start;
+    align-items: start;
     flex-wrap: wrap;
     margin: 0;
+    padding: 0;
     border-right: 1px solid rgba(0, 0, 0, .12);
 }
 
 .deleteButton {
-    width: 2%;
+    width: 10%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    color: rgba(0, 0, 0, .87);
+    color: #757575;
     height: auto;
-    min-height: 240px;
+    min-height: 80%;
     border: none;
     background-color: rgba(255, 255, 255, 1);
+    padding: 20px;
+}
+
+.deleteIcon{
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.deleteIcon:hover {
+    background-color: rgba(117, 117, 117, 0.2);
 }
 
 .countChars{
@@ -29,6 +45,7 @@
     align-items: center;
     font-size: 14px;
     width: 100%;
-    height: auto;
+    height: 20%;
     color: #5f6368;
+    padding: 0px 20px;
 }
