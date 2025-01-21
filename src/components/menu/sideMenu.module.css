@@ -36,6 +36,13 @@
     padding: 0px 5px;
 }
 
+@media (max-width: 640px) {
+    .closeButton{
+        margin-top: 60px;
+    }
+}
+
+
 .closeIcon{
     border-radius: 50%;
     cursor: pointer;
