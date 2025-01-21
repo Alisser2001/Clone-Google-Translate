@@ -11,7 +11,7 @@ export default function ProfileMenu() {
                         <p className={styles.gmail}>Estiven25b777@gmail.com</p>
                     </div>
                 </div>
-                <button className={styles.portButton}><a href="https://portfolio-alisser2001.vercel.app/" target="_blank">Go to portfolio</a></button>
+                <button className={styles.portButton}><a href="https://alidev-portfolio.vercel.app/" target="_blank">Go to portfolio</a></button>
                 <ul className={styles.tecList}>
                     <li className={styles.tecElement}>
                         <img src="typescript.png" className={styles.tecImg}/>
