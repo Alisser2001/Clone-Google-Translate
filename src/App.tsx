@@ -22,9 +22,9 @@ function App() {
 }
   return (
     <div id='app' onClick={handleViewAll}>
-      <NavBar handleViewAll={handleViewAll}/>
-      <Options handleViewAll={handleViewAll}/>
-      <Translate handleViewAll={handleViewAll}/>
+      <NavBar />
+      <Options />
+      <Translate />
       {viewSide && <SideComponent />}
       {viewLinks && <LinksComponent />}
       {viewProfile && <ProfileComponent />}
