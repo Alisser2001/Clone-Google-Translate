@@ -31,7 +31,7 @@ export default function LanguageSelector({ type, value }: Props) {
             {Object.entries({ ...SUPPORTED_TO_LANGUAGES }).map(([key, lan], index) => {
                 if (index < 3) return (<li className={value === key ? styles.languageSelected : styles.language} key={key} value={key} onClick={handleLanguage}>{lan}</li>)
             })}
-            <li className={styles.moreButton} onClick={handleViewAllLang}>
+            <span className={styles.moreButton} onClick={handleViewAllLang}>
                 {type === SectionType.From && !viewAllLangsFrom ?
                     <svg xmlns="http://www.w3.org/2000/svg" className={styles.moreIcon} width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -54,7 +54,7 @@ export default function LanguageSelector({ type, value }: Props) {
                         <path d="M6 6l12 12"></path>
                     </svg>
                 }
-            </li>
+            </span>
         </ul>
     );
 }
