@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './sections/navBar';
 import Translate from './sections/translate';
 import Options from './sections/options';
-import SideComponent from './components/menu/SideComponent';
+import SideMenu from './components/menu/sideMenu';
 import { useState } from './hooks/useStore';
-import LinksComponent from './components/menu/LinksComponent';
-import ProfileComponent from './components/menu/ProfileComponent';
+import ToolsMenu from './components/menu/toolsMenu';
+import ProfileMenu from './components/menu/profileMenu';
 import { useEffect } from "react";
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
       <NavBar />
       <Options />
       <Translate />
-      {viewSide && <SideComponent />}
-      {viewLinks && <LinksComponent />}
-      {viewProfile && <ProfileComponent />}
+      {viewSide && <SideMenu />}
+      {viewLinks && <ToolsMenu />}
+      {viewProfile && <ProfileMenu />}
     </div>
   )
 }

@@ -2,7 +2,7 @@ import styles from "./languageSelectorContainer.module.css";
 import LanguageSelector from "../languageSelector";
 import { SectionType } from "../../utils/types.d";
 import { useState } from "../../hooks/useStore";
-import AllLanguages from "../menu/AllLanguages";
+import AllLanguages from "../menu/allLanguagesMenu";
 import { AUTO_LANGUAGE } from "../../utils/constants";
 
 function LanguageSelectorContainer() {
