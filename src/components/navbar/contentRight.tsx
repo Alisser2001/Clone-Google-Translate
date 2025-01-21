@@ -2,10 +2,10 @@ import styles from "./contentRight.module.css";
 import { useState } from "../../hooks/useStore";
 
 function ContentRight() {
-    const { setViewSide, setViewLinks, setViewProfile, setViewAllLangsFrom, setViewAllLangsTo } = useState();
+    const { setViewSide, setViewLinks, setViewProfile, setViewAllLangsFrom, setViewAllLangsTo, viewProfile, viewLinks } = useState();
     const handleViewLinks = () => {
         setViewSide(false);
-        setViewLinks(true);
+        setViewLinks(!viewLinks);
         setViewProfile(false);
         setViewAllLangsFrom(false);
         setViewAllLangsTo(false);
@@ -13,7 +13,7 @@ function ContentRight() {
     const handleViewProfile = () => {
         setViewSide(false);
         setViewLinks(false);
-        setViewProfile(true);
+        setViewProfile(!viewProfile);
         setViewAllLangsFrom(false);
         setViewAllLangsTo(false);
     }

@@ -1,6 +1,6 @@
-import styles from "./LinksComponent.module.css";
+import styles from "./toolsMenu.module.css";
 
-export default function LinksComponent() {
+export default function ToolsMenu() {
     return (
         <div className={styles.containerLinks}>
             <ul className={styles.linksList}>
@@ -15,10 +15,6 @@ export default function LinksComponent() {
                 <a className={styles.listElement} href="https://twitter.com/JuanEstivenCar2" target="_blank">
                     <img src="/gorjeo.png" className={styles.img}/>
                     <p className={styles.text}>Twitter</p>
-                </a>
-                <a className={styles.listElement} href="https://www.instagram.com/alisser2001/" target="_blank">
-                    <img src="/instagram.png" className={styles.img}/>
-                    <p className={styles.text}>Instagram</p>
                 </a>
             </ul>
         </div>

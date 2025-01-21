@@ -1,6 +1,6 @@
-import styles from "./ProfileComponent.module.css";
+import styles from "./profileMenu.module.css";
 
-export default function ProfileComponent() {
+export default function ProfileMenu() {
     return (
         <div className={styles.containerProfile}>
             <div className={styles.info}>

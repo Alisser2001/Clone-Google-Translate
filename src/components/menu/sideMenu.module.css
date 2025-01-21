@@ -1,17 +1,18 @@
 .containerSide {
+    position: absolute;
     width: 280px;
     max-width: 280px;
     background-color: #fff;
     bottom: 0;
     color: #000;
     height: 100vh;
-    position: absolute;
-    z-index: 990;
+    z-index: 200;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: start;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    padding: 20px 0;
+    padding: 0;
     animation: side 0.5s;
 }
 
@@ -24,11 +25,35 @@
     }
 }
 
+.closeButton {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    height: 60px;
+    color: #757575;
+    padding: 0px 5px;
+}
+
+.closeIcon{
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.closeIcon:hover {
+    background-color: rgba(117, 117, 117, 0.2);
+}
+
 .icon {
     display: flex;
     flex-direction: row;
     align-items: center;
     font: Roboto, Arial, sans-serif;
+    text-decoration: none;
 }
 
 .googleIcon {
@@ -36,24 +61,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 30px;
-    max-height: 30px;
-}
-
-.translateText {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    vertical-align: middle;
-    height: 30px;
-    max-height: 30px;
-    font-size: 22px;
-    margin-left: 5px;
-    font-weight: 400;
-    color: #5f6368;
-    opacity: 1;
+    height: 100%;
 }
 
 .googleIcon::before {
@@ -64,13 +72,29 @@
     width: 74px;
 }
 
+.translateText {
+    flex-direction: row;
+    justify-content: start;
+    text-align: start;
+    align-items: center;
+    height: 100%;
+    font-size: 22px;
+    margin-left: 5px;
+    font-weight: 500;
+    color: #5f6368;
+    white-space: nowrap; 
+    overflow: hidden;           
+    text-overflow: ellipsis; 
+    display: inline-block;      
+    max-width: 100%; 
+}
+
 .options {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 100%;
     list-style: none;
-    margin: 25px 0 0 0;
+    margin: 30px 0 0 0;
     padding: 0;
 }
 
@@ -78,23 +102,18 @@
     display: flex;
     width: 100%;
     max-width: 100%;
-    height: 40px;
+    height: 50px;
     padding-left: 40px;
     align-items: center;
 }
 
 .option>a {
     color: #000;
+    text-decoration: none;
+    font-size: 13px;
 }
 
 .option:hover {
     cursor: pointer;
-}
-
-.option>a:hover {
-    color: #000;
-}
-
-.option:hover {
-    background-color: rgba(117, 117, 117, 0.2);
+    background-color: rgba(117, 117, 117, 0.1);
 }
