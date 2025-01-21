@@ -63,6 +63,12 @@
     padding: 0px 20px;
 }
 
+@media (max-width: 640px) {
+    .bottomOptions{
+        margin-bottom: 10px;
+    }
+}
+
 .copyIcon,
 .speakIcon {
     border-radius: 50%;
