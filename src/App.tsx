@@ -10,14 +10,21 @@ import ProfileComponent from './components/menu/ProfileComponent';
 import { useEffect } from "react";
 
 function App() {
-  const { viewSide, viewLinks, viewProfile } = useState();
+  const { viewSide, viewLinks, viewProfile, setViewSide, setViewLinks, setViewProfile, setViewAllLangsFrom, setViewAllLangsTo } = useState();
   useEffect(() => {
   }, [viewSide, viewLinks, viewProfile]);
+  const handleViewAll = () => {
+    setViewSide(false);
+    setViewLinks(false);
+    setViewProfile(false);
+    setViewAllLangsFrom(false);
+    setViewAllLangsTo(false);
+}
   return (
-    <div id='app'>
-      <NavBar />
-      <Options />
-      <Translate />
+    <div id='app' onClick={handleViewAll}>
+      <NavBar handleViewAll={handleViewAll}/>
+      <Options handleViewAll={handleViewAll}/>
+      <Translate handleViewAll={handleViewAll}/>
       {viewSide && <SideComponent />}
       {viewLinks && <LinksComponent />}
       {viewProfile && <ProfileComponent />}
