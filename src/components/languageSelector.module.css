@@ -17,6 +17,27 @@
     padding: 0;
 }
 
+@media (max-width: 1024px) {
+    .selectLanguageContainer>li:nth-child(4) {
+        display: none;
+    }
+
+    .selectLanguageContainer>li {
+        padding: 0px 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .selectLanguageContainer>li:nth-child(n+2) {
+        display: none;
+    }
+
+    .selectLanguageContainer>li:nth-child(1) {
+        width: 90%;
+        padding: 0px 2px;
+    }
+}
+
 .language {
     display: flex;
     flex-direction: row;
@@ -25,11 +46,14 @@
     font-weight: 500;
     height: 100%;
     color: #5f6368;
-    font-size: 1vw;
+    font-size: 13px;
     width: auto;
     cursor: pointer;
     flex-wrap: nowrap;
     padding: 0px 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .language:hover {
@@ -44,18 +68,21 @@
     align-items: center;
     font-weight: 500;
     height: 100%;
-    font-size: 1vw;
+    font-size: 13px;
     width: auto;
     cursor: pointer;
     flex-wrap: nowrap;
-    color: rgb(25,103,210);
+    color: rgb(25, 103, 210);
     box-sizing: border-box;
-    border-bottom: 3px solid rgb(25,103,210);
+    border-bottom: 3px solid rgb(25, 103, 210);
     padding: 0px 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.languageSelected:hover{
-    background-color: rgba(25,103,210, 0.1);
+.languageSelected:hover {
+    background-color: rgba(25, 103, 210, 0.1);
 }
 
 .moreButton {
@@ -68,15 +95,18 @@
     cursor: pointer;
 }
 
-.moreIcon, .closeIcon{
+.moreIcon,
+.closeIcon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     padding: 10px;
 }
-.moreIcon:hover{
+
+.moreIcon:hover {
     background-color: rgba(117, 117, 117, 0.2);
 }
-.closeIcon:hover{
+
+.closeIcon:hover {
     background-color: rgba(117, 117, 117, 0.2);
 }

@@ -11,6 +11,14 @@
     padding: 0;
 }
 
+@media (max-width: 640px) {
+    .toLanguageCont{
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, .12);
+    }
+}
+
 .favoriteButton {
     width: 10%;
     display: flex;
@@ -23,6 +31,12 @@
     border: none;
     background-color: rgba(255, 255, 255, 1);
     padding: 13px 20px;
+}
+
+@media (max-width: 640px) {
+    .favoriteButton{
+        padding: 6px 10px;
+    }
 }
 
 .favoriteIcon {

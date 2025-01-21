@@ -12,6 +12,14 @@
     border-right: 1px solid rgba(0, 0, 0, .12);
 }
 
+@media (max-width: 640px) {
+    .fromLanguageCont{
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, .12);
+    }
+}
+
 .deleteButton {
     width: 10%;
     display: flex;
@@ -24,6 +32,12 @@
     border: none;
     background-color: rgba(255, 255, 255, 1);
     padding: 13px 20px;
+}
+
+@media (max-width: 640px) {
+    .deleteButton{
+        padding: 6px 10px;
+    }
 }
 
 .deleteIcon, .microIcon{

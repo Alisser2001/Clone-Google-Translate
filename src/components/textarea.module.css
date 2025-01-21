@@ -1,10 +1,24 @@
 .container {
     padding: 20px;
+    height: auto;
     height: 80%;
     border: none;
     width: 90%;
     resize: none;
     color: rgba(0, 0, 0, .87);
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 85%;
+    }
+}
+
+@media (max-width: 640px) {
+    .container{
+        padding: 14px 10PX;
+        height: 230px;
+    }
 }
 
 .container:disabled {
